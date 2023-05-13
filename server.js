@@ -15,7 +15,7 @@ const server = express();
 server.use(cors());
 server.use(express.json())
 
-const client = new pg.Client('postgresql://localhost:5432/movies')
+const client = new pg.Client(process.env.DATABASE_URL)
 
 server.get('/', handelHome);
 server.get('/favorite', handelFavorite);
